@@ -10,5 +10,6 @@ C#学习心得
 * Array or List
 * IEnumerable or List
 * 何时用var
+* object or dynamic
 
 ## Unity UI Toolkit
