@@ -11,5 +11,10 @@ C#学习心得
 * IEnumerable or List
 * 何时用var
 * object or dynamic
+* interface or abstract class
+* sealed class
+* namespace
+* for or foreach
+* LINQ or method
 
 ## Unity UI Toolkit
