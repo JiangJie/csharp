@@ -69,6 +69,8 @@ C#学习心得
 
 ### lambda expression or local function
 
+> At first glance, local functions and lambda expressions are very similar. In many cases, the choice between using lambda expressions and local functions is a matter of style and personal preference.
+
 ```c#
 public static void Main()
 {
@@ -76,19 +78,36 @@ public static void Main()
     // lambda expression
     var add = (int j) => i += j;
     // local function
-    void addFunc(int j)
-    {
-        i += j;
-    }
+    void addFunc(int j) => i += j;
 }
 ```
 
-* lambda expression不能用泛型
+多数场景下，两者确实用谁都可以，在调用次数不大的情况下，性能差别也几乎可以忽略，但`local function`作为`lambda expression`的增强版，具有一些`lambda expression`不具备的能力，意味着在某些场景下，只能选择使用`local function`
+
 * yield
-* iterable
-* 变量赋值
-* 表达式和函数
+    > `lambda expression`不支持`yield return`，而`local function`支持，意味着`local function`可以实现为迭代器
+* 泛型
+    > 因为`lambda expression`是匿名函数，不支持泛型，而`local function`支持
+    ```c#
+    string stringify<T>(T x) => x.ToString();
+    ```
 * 递归
+    > 在看递归之前先看一个例子
+    ```c#
+    int i;
+    // error: 使用了未赋值的局部变量“i” [csharp]csharp(CS0165)
+    var add = (int j) => i += j;
+    ```
+
+    > `lambda expression`虽然代码跟函数体类似，但其本质还是表达式，函数在声明的时候并不检查函数体使用的变量是否赋值了，而表达式则需要
+
+    > 我们在使用`lambda expression`的时候，其实绝大多数时候是通过创建`delegate`来使用
+
+    ```c#
+    // error: 本地变量“f”在声明之前无法使用 [csharp]csharp(CS0841)
+    var f = (int n) => n == 1 ? n : n * f(n - 1);
+    ```
+* 堆和栈
 
 * Array or List
 * IEnumerable or List
