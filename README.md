@@ -1,7 +1,5 @@
 # csharp
 
-C#学习心得
-
 ## C#相关
 
 ### int or uint（有符号 or 无符号）
@@ -240,7 +238,23 @@ public void Main()
 总结起来，当`local function`所有捕获的变量（`static`除外）没有被其他`lambda expression`或者当做`delegate`的`local function`捕获时，则使用栈分配，否则使用堆分配，从性能上来说，相比`local function`就没了优势
 
 * Array or List
-* IEnumerable or List
+
+数组是一段连续的内存，集合不一定连续
+
+连续内存带来的好处就是索引更快，只需要根据地址偏移即可
+
+数组一旦创建，则长度不可变，尽管性能更优，但使用的时候一定要考虑长远是否存在增/删等改变长度的操作，如果有则建议使用列表
+
+尽管列表使用起来很方便，但并不能取代数组，很多场景其实都不需要增/删操作，这时候就应该使用数组
+
+如不会被修改的函数参数，API的函数返回值等，但如果原始数据就是List，也没有必要通过ToArray非要转成数组再用
+
+如底牌数组，手牌列表
+
+* generic or specific
+
+> Return the most specific type, accept the most generic type.
+
 * 何时用var
 * object or dynamic
 * interface or abstract class
