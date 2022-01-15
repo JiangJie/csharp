@@ -16,6 +16,7 @@
 * [overload or default parameters](csharp/overload_or_default_parameters.md)
 * [temp var? whether or not](csharp/temp_var_whether_or_not.md)
 * [if (bool? == true)](if_bool?_==_true.md)
+* [singleton or static class)](singleton_or_static_class.md)
 
 ## Unity UI Toolkit
 
