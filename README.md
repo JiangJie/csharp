@@ -23,3 +23,9 @@
 * [对比UGUI](ui_toolkit/ui_toolkit_or_ugui.md)
 * [sample](ui_toolkit/ui_toolkit_sample.md)
 * [USS选择器详解](ui_toolkit/ui_toolkit_uss.md)
+
+## Unity其他
+
+* prefab单脚本还是拆分成多脚本
+* 所有prefab脚本挂在根节点合适吗
+* SerializeField or GetComponent
